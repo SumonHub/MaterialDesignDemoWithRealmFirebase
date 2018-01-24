@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/app1"
+            android:icon="@drawable/app"
+            android:title="@string/suggestion_app_name1" />
+        <item
+            android:id="@+id/app2"
+            android:icon="@drawable/app"
+            android:title="@string/suggestion_app_name2" />
+        <item
+            android:id="@+id/app3"
+            android:icon="@drawable/app"
+            android:title="@string/suggestion_app_name3" />
+        <item
+            android:id="@+id/shareApp"
+            android:icon="@drawable/share"
+            android:title="Share App" />
+
+        <item
+            android:id="@+id/ratingApp"
+            android:icon="@drawable/rating"
+            android:title="Rating" />
+    </group>
+
+    <item android:title="Declaimer">
+        <menu>
+            <item
+                android:id="@+id/disclaimer"
+                android:icon="@drawable/disclaimer"
+                android:title="disclaimer" />
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="title_array">
+        <item>New York</item>
+        <item>Los Angeles</item>
+        <item>San Francisco</item>
+        <item>Paris</item>
+        <item>London</item>
+    </string-array>
+
+    <string-array name="subtitle1_array">
+        <item>spinner item 1</item>
+        <item>spinner item 2</item>
+        <item>spinner item 3</item>
+        <item>spinner item 4</item>
+        <item>spinner item 5</item>
+    </string-array>
+
+    <string-array name="subtitle2_array">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+
+</resources>

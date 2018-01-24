@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.sumon.materialdesigndemo.activity.ScrollingActivity"
+    tools:showIn="@layout/activity_disclimer">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="6dp">
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            app:cardCornerRadius="4dp"
+            app:cardUseCompatPadding="true">
+            <TextView
+                android:id="@+id/subTitle2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lineSpacingExtra="@dimen/text_margin_very_small"
+                android:padding="12dp"
+                android:text="Silver Touch Technologies Limited, India Herein after referred to as “Silver Touch” does not warrant the accuracy or completeness of the materials or the reliability of any advices, opinions, statements or other information as displayed or distributed through the Applications or Website herein after referred to as “Applications”. You acknowledge that any reliance on any such opinion, advice, statement, memorandum, or information shall be at your own/sole risk and consequences attached there to.
+
+Silver Touch as being a developer to the Applications reserves its right, in its sole discretion, to correct/rectify any errors or omissions in any portion of the materials. Silver Touch may make any other changes/improvements in the Applications and the products, programs, services or prices (if any) described/published at any time without any prior notice. All data and information provided on is for the purpose of information only.
+
+Whilst every effort would be made to ensure accurate functioning of functional modules, extensions, code base or integrations as possible; their accuracy can only be as good as the information provided by the suppliers of the services, extension, code base or suppliers (in case of integrations). The Applications are dependent on many factors to function as depicted or illustrated or described and thus Silver Touch cannot and does not ensure any comprehensive cover for the functioning.
+
+Silver Touch makes no representations as to accuracy, completeness, suitability, or validity of any information in the Applications and will not be liable for any errors, omissions, or delays in this information or any losses, injuries, or damages arising from its display or use of the same. All information is provided on an as-is basis. The content is provided for general information only, and should not be treated as a substitute for any other professionals.
+
+The content comes from sources believed to be accurate, but may contain inaccuracies or typographical errors or may there be a case of omission. Silver Touch makes no representations about the results to be obtained from using the Applications or the contents there of. The use of the Applications and the contents is at your/the person who is using at their own risk. Tips and advice noted on the Applications might or might not work for everyone or everytime or everywhere. You further agree that SILVER TOUCH TECHNOLOGIES LIMITED shall not be held responsible for any uncontrollable security attack leading to failures of accuracy and integrity of information on the Applications and in such cases you agree that Silver Touch shall not be held responsible for any type of losses that may occur to you under the Provisions of Section 43 and 43A of Information Technology Act, 2000 and including any amendments in the said Act.
+"
+                android:textIsSelectable="true" />
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
