@@ -83,12 +83,12 @@ public class FavoriteFragment extends Fragment {
             final GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
             mRecyclerView.setLayoutManager(gridLayoutManager);
         } else {
-           final LinearLayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
+            final LinearLayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
             mRecyclerView.setLayoutManager(mLayoutManager);
         }
 
-        adapter = new RecyclerViewAdapter(getContext() , realmHelper.justRefresh());
-        Log.d(TAG, "initView: "+realmHelper.justRefresh());
+        adapter = new RecyclerViewAdapter(getContext(), realmHelper.justRefresh());
+        Log.d(TAG, "initView: " + realmHelper.justRefresh());
         mRecyclerView.setAdapter(adapter);
 
 
@@ -110,16 +110,16 @@ public class FavoriteFragment extends Fragment {
             }
         });
 
-       // mRecyclerView.addOnScrollListener(scrollListener);
-       realmChange = new RealmChangeListener() {
-             @Override
-             public void onChange(Object o) {
-                 adapter = new RecyclerViewAdapter(getContext(), realmHelper.justRefresh());
-                 mRecyclerView.setAdapter(adapter);
+        // mRecyclerView.addOnScrollListener(scrollListener);
+        realmChange = new RealmChangeListener() {
+            @Override
+            public void onChange(Object o) {
+                adapter = new RecyclerViewAdapter(getContext(), realmHelper.justRefresh());
+                mRecyclerView.setAdapter(adapter);
 
 
-             }
-         };
+            }
+        };
 
         realm.addChangeListener(realmChange);
     }
@@ -128,6 +128,7 @@ public class FavoriteFragment extends Fragment {
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         return (int) (displayMetrics.widthPixels / displayMetrics.density);
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

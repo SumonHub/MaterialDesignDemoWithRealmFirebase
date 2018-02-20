@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
 
-      //  View headerView = navigationView.getHeaderView(0);
-       // LinearLayout nav_header = (LinearLayout) headerView.findViewById(R.id.nav_header);
+        //  View headerView = navigationView.getHeaderView(0);
+        // LinearLayout nav_header = (LinearLayout) headerView.findViewById(R.id.nav_header);
         /*nav_header.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,10 +188,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     i.setType("text/plain");
                     i.putExtra(Intent.EXTRA_SUBJECT, "My application name");
                     String sAux = "\nLet me recommend you this application\n\n";
-                    sAux = sAux + "https://play.google.com/store/apps/details?id="+getPackageName();
+                    sAux = sAux + "https://play.google.com/store/apps/details?id=" + getPackageName();
                     i.putExtra(Intent.EXTRA_TEXT, sAux);
                     startActivity(Intent.createChooser(i, "choose one"));
-                } catch(Exception e) {
+                } catch (Exception e) {
                     //e.toString();
                 }
                 break;
@@ -199,8 +199,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 goApp(getPackageName());
                 break;
             case R.id.disclaimer:
-               Intent intent1 = new Intent(MainActivity.this, DisclimerActivity.class);
-               startActivity(intent1);
+                Intent intent1 = new Intent(MainActivity.this, DisclimerActivity.class);
+                startActivity(intent1);
 
                 /* intent.setData(Uri.parse(Constant.MATERIAL_DESIGN_COLOR_URL));
                 intent.setAction(Intent.ACTION_VIEW);
@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    public  void goApp(String pakageName){
+    public void goApp(String pakageName) {
         Uri uri = Uri.parse("market://details?id=" + pakageName);
         Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
         try {

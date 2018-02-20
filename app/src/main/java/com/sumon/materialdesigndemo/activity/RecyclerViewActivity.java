@@ -51,7 +51,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-    //    initData();
+        //    initData();
         initView();
     }
 

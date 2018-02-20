@@ -77,15 +77,15 @@ public class ScrollingActivity extends AppCompatActivity {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_scrolling);
         fab.setOnClickListener(new View.OnClickListener() {
 
-            public  String APP_URL = "https://play.google.com/store/apps/details?id="+getPackageName();
-            public  String DESIGNED_BY = "NextAppsBD";
-            public  String SHARE_CONTENT = "ভাল লাগার মত একটি অ্যাপ.... :\n" + APP_URL + "\n- " + DESIGNED_BY;
+            public String APP_URL = "https://play.google.com/store/apps/details?id=" + getPackageName();
+            public String DESIGNED_BY = "NextAppsBD";
+            public String SHARE_CONTENT = "ভাল লাগার মত একটি অ্যাপ.... :\n" + APP_URL + "\n- " + DESIGNED_BY;
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id="+ getPackageName());
+                intent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=" + getPackageName());
                 intent.setType("text/plain");
                 startActivity(Intent.createChooser(intent, getString(R.string.share_with)));
                 Log.i("TAG", "share_with execute");
@@ -95,14 +95,14 @@ public class ScrollingActivity extends AppCompatActivity {
 
         bookmark = (FloatingActionButton) findViewById(R.id.fab_scrolling2);
 
-        isSave = new DataModel(getTitle , getSubTitle1 , getSubTitle2);
+        isSave = new DataModel(getTitle, getSubTitle1, getSubTitle2);
 
         realmHelper = new RealmHelper(realm);
         realmHelper.isSave(isSave);
 
-        if (realmHelper.isSave(isSave)){
+        if (realmHelper.isSave(isSave)) {
             bookmark.setImageResource(R.drawable.un_bookmark);
-        }else {
+        } else {
             bookmark.setImageResource(R.drawable.bookmark);
         }
         bookmark.setOnClickListener(new View.OnClickListener() {
@@ -111,14 +111,14 @@ public class ScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (realmHelper.isSave(isSave)){
-                 //   realmHelper.delete(isSave);
-                 //   bookmark.setImageResource(R.drawable.un_bookmark);
+                if (realmHelper.isSave(isSave)) {
+                    //   realmHelper.delete(isSave);
+                    //   bookmark.setImageResource(R.drawable.un_bookmark);
 
                     bookmark.setImageResource(R.drawable.bookmark);
 
                     Snackbar snackbar = Snackbar
-                            .make(v, "Add to favorite || " +isSave.getTitle(), Snackbar.LENGTH_LONG);
+                            .make(v, "Add to favorite || " + isSave.getTitle(), Snackbar.LENGTH_LONG);
 
                     View sbView = snackbar.getView();
                     TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
@@ -129,19 +129,18 @@ public class ScrollingActivity extends AppCompatActivity {
                     snackbar.show();
 
 
-
                     RealmHelper h = new RealmHelper(realm);
                     h.save(isSave);
 
-                    Log.i("SAVE", "onFavoriteChanged: " + isSave.getTitle() );
-                }else {
-                   // realmHelper.save(isSave);
-                   // bookmark.setImageResource(R.drawable.bookmark);
+                    Log.i("SAVE", "onFavoriteChanged: " + isSave.getTitle());
+                } else {
+                    // realmHelper.save(isSave);
+                    // bookmark.setImageResource(R.drawable.bookmark);
 
                     bookmark.setImageResource(R.drawable.un_bookmark);
 
                     Snackbar snackbar = Snackbar
-                            .make(v, "Remove from favorite || " +isSave.getTitle(), Snackbar.LENGTH_LONG);
+                            .make(v, "Remove from favorite || " + isSave.getTitle(), Snackbar.LENGTH_LONG);
 
                     View sbView = snackbar.getView();
                     TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
@@ -155,7 +154,7 @@ public class ScrollingActivity extends AppCompatActivity {
                     RealmHelper h = new RealmHelper(realm);
                     h.delete(isSave);
 
-                    Log.i("DELETE", "onFavoriteChanged: " + isSave.getTitle() );
+                    Log.i("DELETE", "onFavoriteChanged: " + isSave.getTitle());
                 }
             }
         });

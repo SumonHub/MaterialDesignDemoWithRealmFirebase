@@ -49,8 +49,8 @@ public class HomeFragment extends Fragment {
     private boolean loading;
     private int loadTimes;
 
-    ArrayList<DataModel> dataModelArrayList = new ArrayList<>();;
-
+    ArrayList<DataModel> dataModelArrayList = new ArrayList<>();
+    ;
 
 
     @Nullable
@@ -90,16 +90,15 @@ public class HomeFragment extends Fragment {
         try {
             JSONObject object = new JSONObject(readJSONFromAsset());
             JSONArray recipes = object.getJSONArray("recipes");
-            for(int i=0;i<recipes.length();i++)
-            {
-                JSONObject jsonObject= recipes.getJSONObject(i);
-                String subTitle1 =jsonObject.getString("subTitle1");
-                String subTitle2 =jsonObject.getString("subTitle2");
-                String title =jsonObject.getString("title");
-                DataModel dataModelClass = new DataModel(title, subTitle1 , subTitle2);
+            for (int i = 0; i < recipes.length(); i++) {
+                JSONObject jsonObject = recipes.getJSONObject(i);
+                String subTitle1 = jsonObject.getString("subTitle1");
+                String subTitle2 = jsonObject.getString("subTitle2");
+                String title = jsonObject.getString("title");
+                DataModel dataModelClass = new DataModel(title, subTitle1, subTitle2);
 
                 dataModelArrayList.add(dataModelClass);
-                Log.d(TAG, "readJsonFromAssets: "+dataModelArrayList);
+                Log.d(TAG, "readJsonFromAssets: " + dataModelArrayList);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -130,15 +129,15 @@ public class HomeFragment extends Fragment {
             final GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
             mRecyclerView.setLayoutManager(gridLayoutManager);
         } else {
-           final LinearLayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
+            final LinearLayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
             mRecyclerView.setLayoutManager(mLayoutManager);
         }
 
-        adapter = new RecyclerViewAdapter(getContext() , dataModelArrayList);
+        adapter = new RecyclerViewAdapter(getContext(), dataModelArrayList);
         mRecyclerView.setAdapter(adapter);
 
         //adapter.setItems(dataModelArrayList);
-       // adapter.addFooter();*/
+        // adapter.addFooter();*/
 
 
         swipeRefreshLayout.setColorSchemeResources(R.color.google_blue, R.color.google_green, R.color.google_red, R.color.google_yellow);
@@ -159,7 +158,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-       // mRecyclerView.addOnScrollListener(scrollListener);
+        // mRecyclerView.addOnScrollListener(scrollListener);
     }
 
 

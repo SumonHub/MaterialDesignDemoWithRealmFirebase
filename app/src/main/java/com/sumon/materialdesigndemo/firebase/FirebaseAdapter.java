@@ -24,10 +24,10 @@ import java.security.AccessControlContext;
  * Created by SumOn on 10/25/2017.
  */
 
-public class FirebaseAdapter extends FirebaseRecyclerAdapter<DataModel , RecyclerViewHolder> {
+public class FirebaseAdapter extends FirebaseRecyclerAdapter<DataModel, RecyclerViewHolder> {
 
     public Context context;
-    public int color =0 ;
+    public int color = 0;
 
     public FirebaseAdapter(Class<DataModel> modelClass, int modelLayout, Class<RecyclerViewHolder> viewHolderClass, Query ref, Context mContext) {
         super(modelClass, modelLayout, viewHolderClass, ref);
@@ -40,9 +40,9 @@ public class FirebaseAdapter extends FirebaseRecyclerAdapter<DataModel , Recycle
         viewHolder.title.setText(model.getTitle());
         viewHolder.subTitle1.setText(model.getSubTitle1());
         viewHolder.subTitle2.setText(model.getSubTitle2());
-        viewHolder.digitText.setText(model.getTitle().substring(0,1));
+        viewHolder.digitText.setText(model.getTitle().substring(0, 1));
 
-      //  Glide.with(context).load(model.getRecipeImageUrl()).into(viewHolder.recipeImage);
+        //  Glide.with(context).load(model.getRecipeImageUrl()).into(viewHolder.recipeImage);
 
         Animation animation = AnimationUtils.loadAnimation(context, R.anim.anim_recycler_item_show);
         viewHolder.mView.startAnimation(animation);

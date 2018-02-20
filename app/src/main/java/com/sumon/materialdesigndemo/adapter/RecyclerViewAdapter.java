@@ -79,8 +79,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_view, parent, false);
-            return new RecyclerViewHolder(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_view, parent, false);
+        return new RecyclerViewHolder(view);
 
     }
 
@@ -93,7 +93,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             recyclerViewHolder.title.setText(dataModelArrayList.get(position).getTitle());
             recyclerViewHolder.subTitle1.setText(dataModelArrayList.get(position).getSubTitle1());
             recyclerViewHolder.subTitle2.setText(dataModelArrayList.get(position).getSubTitle2());
-            recyclerViewHolder.digitText.setText(dataModelArrayList.get(position).getTitle().substring(0,1));
+            recyclerViewHolder.digitText.setText(dataModelArrayList.get(position).getTitle().substring(0, 1));
 
             Animation animation = AnimationUtils.loadAnimation(context, R.anim.anim_recycler_item_show);
             recyclerViewHolder.mView.startAnimation(animation);

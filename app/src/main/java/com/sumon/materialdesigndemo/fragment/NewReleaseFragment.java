@@ -48,7 +48,6 @@ public class NewReleaseFragment extends Fragment {
     ArrayList<DataModel> dataModelArrayList;
 
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -83,7 +82,7 @@ public class NewReleaseFragment extends Fragment {
             final GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
             mRecyclerView.setLayoutManager(gridLayoutManager);
         } else {
-           final LinearLayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
+            final LinearLayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
             mLayoutManager.setStackFromEnd(true);
             mLayoutManager.setReverseLayout(true);
             mRecyclerView.setLayoutManager(mLayoutManager);
@@ -91,14 +90,13 @@ public class NewReleaseFragment extends Fragment {
         }
 
         DatabaseReference ref = (DatabaseReference) FirebaseDatabase.getInstance().getReference().child("recipes");
-      //  Query queryRef = ref.orderByValue();
+        //  Query queryRef = ref.orderByValue();
         adapter = new FirebaseAdapter(DataModel.class, R.layout.item_recycler_view, RecyclerViewHolder.class, ref, getContext());
         mRecyclerView.setAdapter(adapter);
 
 
-
         //adapter.setItems(dataModelArrayList);
-       // adapter.addFooter();*/
+        // adapter.addFooter();*/
 
 
         swipeRefreshLayout.setColorSchemeResources(R.color.google_blue, R.color.google_green, R.color.google_red, R.color.google_yellow);
@@ -119,7 +117,7 @@ public class NewReleaseFragment extends Fragment {
             }
         });
 
-       // mRecyclerView.addOnScrollListener(scrollListener);
+        // mRecyclerView.addOnScrollListener(scrollListener);
     }
 /*
 
