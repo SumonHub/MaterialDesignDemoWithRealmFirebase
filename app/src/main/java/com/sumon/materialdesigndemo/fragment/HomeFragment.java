@@ -22,6 +22,11 @@ import com.sumon.materialdesigndemo.R;
 import com.sumon.materialdesigndemo.adapter.RecyclerViewAdapter;
 import com.google.android.gms.ads.NativeExpressAdView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -30,6 +35,7 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
 
+    private static final String TAG = "HomeFragment";
     private AlphaAnimation alphaAnimation, alphaAnimationShowIcon;
     private NativeExpressAdView adView;
     private CardView card_ad;
@@ -43,7 +49,7 @@ public class HomeFragment extends Fragment {
     private boolean loading;
     private int loadTimes;
 
-    ArrayList<DataModel> dataModelArrayList;
+    ArrayList<DataModel> dataModelArrayList = new ArrayList<>();;
 
 
 
@@ -75,27 +81,45 @@ public class HomeFragment extends Fragment {
 
     private void initData() {
 
-        String title[], subtitle1[] , subtitle2[];
-        title = getResources().getStringArray(R.array.title_array);
-        subtitle1 = getResources().getStringArray(R.array.subtitle1_array);
-        subtitle2 = getResources().getStringArray(R.array.subtitle2_array);
+        jsonFromAssets();
 
+    }
 
-      /*  String[] title = {"title1", "title2", "title3","title4", "title5", "title6","title7", "title8", "title9","title10", "title11", "title12"};
-        String[] subtitle1 = {"sub1Title1", "sub1Title2", "sub1Title3", "sub1Title4", "sub1Title5", "sub1Title6", "sub1Title7", "sub1Title8", "sub1Title9", "sub1Title10", "sub1Title11", "sub1Title12"};
-        String[] subtitle2 = {"sub2Title1", "sub2Title2", "sub2Title3", "sub2Title4", "sub2Title5", "sub2Title6", "sub2Title7", "sub2Title8", "sub2Title9", "sub2Title10", "sub2Title11", "sub2Title12",};
-*/
-        int limit = title.length;
-        dataModelArrayList = new ArrayList<>();
-        for (int i = 0; i <limit; i++) {
-            DataModel dataModelClass = new DataModel(title[i], subtitle1[i] , subtitle2[i]);
-            dataModelArrayList.add(dataModelClass);
+    private void jsonFromAssets() {
 
-            Log.i("INTI_DATA", "initData: " + dataModelClass + title.length);
+        try {
+            JSONObject object = new JSONObject(readJSONFromAsset());
+            JSONArray recipes = object.getJSONArray("recipes");
+            for(int i=0;i<recipes.length();i++)
+            {
+                JSONObject jsonObject= recipes.getJSONObject(i);
+                String subTitle1 =jsonObject.getString("subTitle1");
+                String subTitle2 =jsonObject.getString("subTitle2");
+                String title =jsonObject.getString("title");
+                DataModel dataModelClass = new DataModel(title, subTitle1 , subTitle2);
+
+                dataModelArrayList.add(dataModelClass);
+                Log.d(TAG, "readJsonFromAssets: "+dataModelArrayList);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
 
-        insertData = "0";
-        loadTimes = 0;
+    public String readJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getActivity().getAssets().open("test.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
     private void initView() {
@@ -137,7 +161,9 @@ public class HomeFragment extends Fragment {
 
        // mRecyclerView.addOnScrollListener(scrollListener);
     }
-/*
+
+
+    /*
 
     RecyclerView.OnScrollListener scrollListener = new_icon RecyclerView.OnScrollListener() {
         @Override

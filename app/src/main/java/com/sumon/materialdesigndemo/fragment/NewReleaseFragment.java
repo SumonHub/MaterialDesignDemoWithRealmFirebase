@@ -95,6 +95,8 @@ public class NewReleaseFragment extends Fragment {
         adapter = new FirebaseAdapter(DataModel.class, R.layout.item_recycler_view, RecyclerViewHolder.class, ref, getContext());
         mRecyclerView.setAdapter(adapter);
 
+
+
         //adapter.setItems(dataModelArrayList);
        // adapter.addFooter();*/
 
