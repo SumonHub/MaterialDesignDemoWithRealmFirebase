@@ -27,7 +27,7 @@ import com.sumon.materialdesigndemo.firebase.FirebaseAdapter;
 import java.util.ArrayList;
 
 /**
- * Created by zhang on 2016.08.07.
+ * Created by SumOn on 2016.08.07.
  */
 public class NewReleaseFragment extends Fragment {
 
