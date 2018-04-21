@@ -49,8 +49,7 @@ public class HomeFragment extends Fragment {
     private boolean loading;
     private int loadTimes;
 
-    ArrayList<DataModel> dataModelArrayList = new ArrayList<>();
-    ;
+    ArrayList<DataModel> dataModelArrayList;
 
 
     @Nullable
@@ -97,6 +96,7 @@ public class HomeFragment extends Fragment {
                 String title = jsonObject.getString("title");
                 DataModel dataModelClass = new DataModel(title, subTitle1, subTitle2);
 
+                dataModelArrayList = new ArrayList<>();
                 dataModelArrayList.add(dataModelClass);
                 Log.d(TAG, "readJsonFromAssets: " + dataModelArrayList);
             }

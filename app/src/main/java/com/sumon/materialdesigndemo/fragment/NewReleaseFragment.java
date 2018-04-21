@@ -45,8 +45,6 @@ public class NewReleaseFragment extends Fragment {
     private boolean loading;
     private int loadTimes;
 
-    ArrayList<DataModel> dataModelArrayList;
-
 
     @Nullable
     @Override
