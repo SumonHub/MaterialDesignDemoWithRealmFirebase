@@ -109,7 +109,7 @@ public class FirebaseAdapter extends FirebaseRecyclerAdapter<DataModel, Recycler
 
     }
 
-    /*@Override
+    @Override
     public void onDataChanged() {
         super.onDataChanged();
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, "1")
@@ -122,7 +122,7 @@ public class FirebaseAdapter extends FirebaseRecyclerAdapter<DataModel, Recycler
 // notificationId is a unique int for each notification that you must define
         int notificationId = 1;
         notificationManager.notify(notificationId, mBuilder.build());
-    }*/
+    }
 
     @Override
     public void onError(@NonNull DatabaseError error) {
