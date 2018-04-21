@@ -86,6 +86,8 @@ public class HomeFragment extends Fragment {
 
     private void jsonFromAssets() {
 
+        dataModelArrayList = new ArrayList<>();
+
         try {
             JSONObject object = new JSONObject(readJSONFromAsset());
             JSONArray recipes = object.getJSONArray("recipes");
@@ -96,7 +98,6 @@ public class HomeFragment extends Fragment {
                 String title = jsonObject.getString("title");
                 DataModel dataModelClass = new DataModel(title, subTitle1, subTitle2);
 
-                dataModelArrayList = new ArrayList<>();
                 dataModelArrayList.add(dataModelClass);
                 Log.d(TAG, "readJsonFromAssets: " + dataModelArrayList);
             }
