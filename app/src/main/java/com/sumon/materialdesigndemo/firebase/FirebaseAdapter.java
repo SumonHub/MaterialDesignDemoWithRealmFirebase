@@ -112,7 +112,7 @@ public class FirebaseAdapter extends FirebaseRecyclerAdapter<DataModel, Recycler
     @Override
     public void onDataChanged() {
         super.onDataChanged();
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, "1")
+       /* NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, "1")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("hay what's up!")
                 .setContentText("something new for you has been added :)")
@@ -121,7 +121,7 @@ public class FirebaseAdapter extends FirebaseRecyclerAdapter<DataModel, Recycler
 
 // notificationId is a unique int for each notification that you must define
         int notificationId = 1;
-        notificationManager.notify(notificationId, mBuilder.build());
+        notificationManager.notify(notificationId, mBuilder.build());*/
     }
 
     @Override
