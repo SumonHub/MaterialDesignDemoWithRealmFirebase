@@ -9,7 +9,6 @@
     android:layout_marginStart="@dimen/card_margin_horizontal_big_activity"
     android:layout_marginTop="@dimen/card_margin_vertical_big_activity"
     android:background="@color/white"
-    android:foreground="?attr/selectableItemBackground"
     card_view:cardCornerRadius="@dimen/card_recycler_corner_radius"
     card_view:cardElevation="@dimen/card_recycler_elevation">
 
@@ -34,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/rela_round"
-            android:text="@string/tv_recycler_item_1"
+            android:text="item title"
             android:textColor="@color/black" />
 
         <TextView
@@ -44,7 +43,9 @@
             android:layout_below="@id/recycler_item_1"
             android:layout_marginTop="@dimen/text_margin_very_small"
             android:layout_toEndOf="@id/rela_round"
-            android:text="@string/tv_recycler_item_2" />
+            android:text="second option"
+            android:lines="2"
+            android:ellipsize="end"/>
 
         <TextView
             android:id="@+id/recycler_item_3"
@@ -53,8 +54,8 @@
             android:layout_below="@id/recycler_item_2"
             android:layout_marginTop="@dimen/text_margin_very_small"
             android:layout_toEndOf="@id/rela_round"
-            android:text="@string/tv_recycler_item_3"
-            android:lines="1"
+            android:text="additional option"
+            android:lines="2"
             android:ellipsize="end"/>
 
         <TextView

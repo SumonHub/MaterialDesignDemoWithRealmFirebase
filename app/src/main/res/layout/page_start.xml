@@ -20,7 +20,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="64dp"
-        android:text="@string/app_designed_by"
+        android:text="app_designed_by SumOn"
         android:textColor="@color/gray"
         android:textSize="20sp"
         android:textStyle="bold" />
