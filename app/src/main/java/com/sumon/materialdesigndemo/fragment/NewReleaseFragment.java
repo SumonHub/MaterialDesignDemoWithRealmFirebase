@@ -11,14 +11,17 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.ads.NativeExpressAdView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.sumon.materialdesigndemo.Model.DataModel;
 import com.sumon.materialdesigndemo.R;
 import com.sumon.materialdesigndemo.adapter.RecyclerViewHolder;
@@ -87,9 +90,16 @@ public class NewReleaseFragment extends Fragment {
 
         }
 
-        DatabaseReference ref = (DatabaseReference) FirebaseDatabase.getInstance().getReference().child("recipes");
-        //  Query queryRef = ref.orderByValue();
-        adapter = new FirebaseAdapter(DataModel.class, R.layout.item_recycler_view, RecyclerViewHolder.class, ref, getContext());
+        Query query = FirebaseDatabase.getInstance()
+                .getReferenceFromUrl("https://bangla-movie-songs-855af.firebaseio.com/recipes")
+                .limitToLast(50);
+
+        FirebaseRecyclerOptions<DataModel> options =
+                new FirebaseRecyclerOptions.Builder<DataModel>()
+                        .setQuery(query, DataModel.class)
+                        .build();
+
+        adapter = new FirebaseAdapter(options,getContext());
         mRecyclerView.setAdapter(adapter);
 
 
@@ -115,50 +125,24 @@ public class NewReleaseFragment extends Fragment {
             }
         });
 
-        // mRecyclerView.addOnScrollListener(scrollListener);
+
     }
-/*
 
-    RecyclerView.OnScrollListener scrollListener = new_icon RecyclerView.OnScrollListener() {
-        @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-            super.onScrolled(recyclerView, dx, dy);
-
-            final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-            if (!loading && linearLayoutManager.getItemCount() == (linearLayoutManager.findLastVisibleItemPosition() + 1)) {
-
-                new_icon Handler().postDelayed(new_icon Runnable() {
-                    @Override
-                    public void run() {
-                        if (loadTimes <= 5) {
-                            adapter.removeFooter();
-                            loading = false;
-                            adapter.addItems(data);
-                            adapter.addFooter();
-                            loadTimes++;
-                        } else {
-                            adapter.removeFooter();
-                            Snackbar.make(mRecyclerView, getString(R.string.no_more_data), Snackbar.LENGTH_SHORT).setCallback(new_icon Snackbar.Callback() {
-                                @Override
-                                public void onDismissed(Snackbar transientBottomBar, int event) {
-                                    super.onDismissed(transientBottomBar, event);
-                                    loading = false;
-                                    adapter.addFooter();
-                                }
-                            }).show();
-                        }
-                    }
-                }, 1500);
-
-                loading = true;
-            }
-        }
-    };
-*/
 
     private int getScreenWidthDp() {
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         return (int) (displayMetrics.widthPixels / displayMetrics.density);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
 }
