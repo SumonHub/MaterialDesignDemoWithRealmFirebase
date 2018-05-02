@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 
+
 import com.sumon.materialdesigndemo.Model.RealmHelper;
 import com.sumon.materialdesigndemo.R;
 import com.sumon.materialdesigndemo.adapter.RecyclerViewAdapter;

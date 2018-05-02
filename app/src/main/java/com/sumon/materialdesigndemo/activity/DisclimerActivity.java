@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.sumon.materialdesigndemo.R;
 
+
 public class DisclimerActivity extends AppCompatActivity {
 
     @Override

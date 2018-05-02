@@ -118,7 +118,6 @@ public class FirebaseAdapter extends FirebaseRecyclerAdapter<DataModel, Recycler
                 .setContentText("something new for you has been added :)")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
-
 // notificationId is a unique int for each notification that you must define
         int notificationId = 1;
         notificationManager.notify(notificationId, mBuilder.build());*/

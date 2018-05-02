@@ -17,10 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 
+import com.google.android.gms.ads.NativeExpressAdView;
 import com.sumon.materialdesigndemo.Model.DataModel;
 import com.sumon.materialdesigndemo.R;
 import com.sumon.materialdesigndemo.adapter.RecyclerViewAdapter;
-import com.google.android.gms.ads.NativeExpressAdView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -30,7 +30,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
- * Created by SumOn on 2017.08.07.
+ * Created by SumOn on 2016.08.07.
  */
 public class HomeFragment extends Fragment {
 
@@ -44,12 +44,14 @@ public class HomeFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private FloatingActionButton fab;
     private RecyclerViewAdapter adapter;
+
     private int color = 0;
     private String insertData;
     private boolean loading;
     private int loadTimes;
 
     ArrayList<DataModel> dataModelArrayList;
+
 
 
     @Nullable
@@ -74,18 +76,13 @@ public class HomeFragment extends Fragment {
         alphaAnimationShowIcon = new AlphaAnimation(0.2f, 1.0f);
         alphaAnimationShowIcon.setDuration(500);
 
-        initData();
+        jsonFromAssets();
         initView();
     }
 
-    private void initData() {
 
-        jsonFromAssets();
-
-    }
 
     private void jsonFromAssets() {
-
         dataModelArrayList = new ArrayList<>();
 
         try {
@@ -136,6 +133,7 @@ public class HomeFragment extends Fragment {
 
         adapter = new RecyclerViewAdapter(getContext(), dataModelArrayList);
         mRecyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
         //adapter.setItems(dataModelArrayList);
         // adapter.addFooter();*/
