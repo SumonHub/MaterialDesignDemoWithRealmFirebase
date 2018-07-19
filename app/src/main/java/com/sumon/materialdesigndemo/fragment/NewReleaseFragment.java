@@ -32,9 +32,7 @@ import java.util.ArrayList;
  */
 public class NewReleaseFragment extends Fragment {
 
-
     private AlphaAnimation alphaAnimation, alphaAnimationShowIcon;
-
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView mRecyclerView;
     private FirebaseAdapter adapter;
@@ -89,7 +87,7 @@ public class NewReleaseFragment extends Fragment {
                         .setQuery(query, DataModel.class)
                         .build();
 
-        adapter = new FirebaseAdapter(options,getContext());
+        adapter = new FirebaseAdapter(options, getContext());
         mRecyclerView.setAdapter(adapter);
 
         swipeRefreshLayout.setColorSchemeResources(R.color.google_blue, R.color.google_green, R.color.google_red, R.color.google_yellow);
@@ -122,6 +120,7 @@ public class NewReleaseFragment extends Fragment {
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         return (int) (displayMetrics.widthPixels / displayMetrics.density);
     }
+
     @Override
     public void onStart() {
         super.onStart();
