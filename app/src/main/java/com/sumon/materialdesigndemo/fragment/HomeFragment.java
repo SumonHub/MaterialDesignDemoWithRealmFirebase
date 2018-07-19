@@ -34,22 +34,12 @@ import java.util.ArrayList;
  */
 public class HomeFragment extends Fragment {
 
-
     private static final String TAG = "HomeFragment";
     private AlphaAnimation alphaAnimation, alphaAnimationShowIcon;
-    private NativeExpressAdView adView;
-    private CardView card_ad;
-
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView mRecyclerView;
-    private FloatingActionButton fab;
     private RecyclerViewAdapter adapter;
-
     private int color = 0;
-    private String insertData;
-    private boolean loading;
-    private int loadTimes;
-
     ArrayList<DataModel> dataModelArrayList;
 
 
@@ -70,8 +60,6 @@ public class HomeFragment extends Fragment {
 
         alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(700);
-       /* img_main_card_1.startAnimation(alphaAnimation);
-        img_main_card_2.startAnimation(alphaAnimation);*/
 
         alphaAnimationShowIcon = new AlphaAnimation(0.2f, 1.0f);
         alphaAnimationShowIcon.setDuration(500);
@@ -135,10 +123,6 @@ public class HomeFragment extends Fragment {
         mRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-        //adapter.setItems(dataModelArrayList);
-        // adapter.addFooter();*/
-
-
         swipeRefreshLayout.setColorSchemeResources(R.color.google_blue, R.color.google_green, R.color.google_red, R.color.google_yellow);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -156,49 +140,7 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-        // mRecyclerView.addOnScrollListener(scrollListener);
     }
-
-
-    /*
-
-    RecyclerView.OnScrollListener scrollListener = new_icon RecyclerView.OnScrollListener() {
-        @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-            super.onScrolled(recyclerView, dx, dy);
-
-            final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-            if (!loading && linearLayoutManager.getItemCount() == (linearLayoutManager.findLastVisibleItemPosition() + 1)) {
-
-                new_icon Handler().postDelayed(new_icon Runnable() {
-                    @Override
-                    public void run() {
-                        if (loadTimes <= 5) {
-                            adapter.removeFooter();
-                            loading = false;
-                            adapter.addItems(data);
-                            adapter.addFooter();
-                            loadTimes++;
-                        } else {
-                            adapter.removeFooter();
-                            Snackbar.make(mRecyclerView, getString(R.string.no_more_data), Snackbar.LENGTH_SHORT).setCallback(new_icon Snackbar.Callback() {
-                                @Override
-                                public void onDismissed(Snackbar transientBottomBar, int event) {
-                                    super.onDismissed(transientBottomBar, event);
-                                    loading = false;
-                                    adapter.addFooter();
-                                }
-                            }).show();
-                        }
-                    }
-                }, 1500);
-
-                loading = true;
-            }
-        }
-    };
-*/
 
     private int getScreenWidthDp() {
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();

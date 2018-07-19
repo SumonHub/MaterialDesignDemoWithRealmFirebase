@@ -57,7 +57,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         initView();
         initViewPager();
+
+
     }
+
 
     private void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
@@ -73,17 +76,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
 
-        //  View headerView = navigationView.getHeaderView(0);
-        // LinearLayout nav_header = (LinearLayout) headerView.findViewById(R.id.nav_header);
-        /*nav_header.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-                drawer.closeDrawer(GravityCompat.START);
-            }
-        });*/
 
         fab = (FloatingActionButton) findViewById(R.id.fab_main);
         fab.setOnClickListener(new View.OnClickListener() {
